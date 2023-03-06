@@ -1,0 +1,2 @@
+class BaseShade < ApplicationRecord
+end

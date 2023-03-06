@@ -1,0 +1,2 @@
+class ColorShade < ApplicationRecord
+end
