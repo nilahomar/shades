@@ -1,5 +1,14 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    if params[:shade]
+      @products = Product.where(shade_hex: params[:shade])
+    else
+      @products = Product.all
+    end
   end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
 end
