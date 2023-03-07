@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'json'
+# this is my seed page
 
 color_shades = {
   'monk1' => '#f6ede4',
