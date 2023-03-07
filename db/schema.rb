@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_152955) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_021916) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "color_shades", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shade_name"
+    t.string "shade_hex"
   end
 
   create_table "favourites", force: :cascade do |t|
@@ -54,6 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152955) do
     t.bigint "color_shade_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "shade_hex"
+    t.string "product_name"
+    t.string "img_main"
+    t.string "img_alt"
     t.index ["color_shade_id"], name: "index_products_on_color_shade_id"
   end
 
@@ -69,15 +75,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_152955) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "firstname"
-    t.string "lastname"
     t.string "first_name"
     t.string "last_name"
     t.bigint "color_shade_id", null: false
