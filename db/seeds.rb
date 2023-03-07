@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Product.destroy_all
 
 require 'json'
 # this is my seed page
@@ -38,6 +39,7 @@ end
 
 def find_closest_shade(shade_hex, color_shades_rgb)
   target = hex_to_rgb(shade_hex)
+  p color_shades_rgb.map { |key, value| [euclidean_distance(target, value), key] }.min
   return color_shades_rgb.map { |key, value| [euclidean_distance(target, value), key] }.min[1]
 end
 

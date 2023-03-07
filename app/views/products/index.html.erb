@@ -1,1 +1,6 @@
-<h1>Hellooooo</h1>
+<h1>My Products </h1>
+<% @products.first(10).each do |product| %>
+<p> <%= image_tag product.img_main,alt: 'fun' %> </p>
+  <p> <%= link_to product.brand_name, products_path(product) %> </p>
+  <p> <%= link_to product.description, products_path(product) %> </p>
+<% end %>
