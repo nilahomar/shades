@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_url("home-background.jpg") %>);">
+  <div class="banner-content">
+    <h1 class=banner-heading>SHADES</h1>
+    <p>“Enhance your natural beauty”</p>
+  </div>
+    <div>
+      <h2>Start your journey, find the perfect shade for you.</h2>
+    </div>
+</div>
+
+<h1 class="home-heading">HOW IT WORKS</h1>
+<div class="home-cards-container">
+  <div class="home-card">
+    <div class="home-card-header">
+      <%= image_tag "logo.png" %>
+      <h3>Select your Skin Tone</h3>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
+  </div>
+  <div class="home-card">
+    <div class="home-card-header">
+      <%= image_tag "shade-2.png" %>
+      <h3>Select your Skin Tone</h3>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
+  </div>
+  <div class="home-card">
+    <div class="home-card-header">
+      <%= image_tag "shopping-cart.png" %>
+      <h3>Select your Skin Tone</h3>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
+  </div>
+  <div class="home-card">
+    <div class="home-card-header">
+      <%= image_tag "sent.png" %>
+      <h3>Select your Skin Tone</h3>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
+  </div>
+</div>

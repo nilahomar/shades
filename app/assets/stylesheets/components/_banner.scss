@@ -1,0 +1,39 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 100vh;
+}
+
+.banner-heading{
+  font-family: $shades-font;
+  margin: 7px;
+  color: black;
+  font-size: 4rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-content{
+  padding: 2rem;
+}
+
+.banner p {
+  font-family: $shades-font;
+  font-size: 2rem;
+  color: black;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner h2 {
+  font-family: $shades-font;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: end;
+  margin-top: 280px;
+  padding-right: 20px;
+}
