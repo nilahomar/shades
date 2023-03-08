@@ -1,16 +1,15 @@
 .product-card-container{
-  padding:  25px 25px 25px 25px;
+  padding:  5rem;
 
 }
 .product-heading {
   text-align: center;
-  padding: 150px 25px 150px 25px;
+  margin: 2rem;
   font-family: $shades-font;
 }
 
 .card-product {
   font-family: $shades-font;
-  height: 500px;
   padding:  25px 25px 25px 25px;
   overflow: hidden;
   background-color: #F3E2E2;
@@ -32,13 +31,31 @@
 }
 
 .card-product p {
- // font-size: 12px;
+  font-weight:900;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  font-size: 1.2rem;
 }
 
 .card-product .card-product-infos {
   padding: 26px;
+}
+
+.color-shades{
+li{
+  width:40px;
+  height: 40px;
+  list-style: none;
+}
+
+display: flex;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.price{
+  text-align: end;
+  font-weight: 900;
 }
