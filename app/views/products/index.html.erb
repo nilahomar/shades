@@ -1,6 +1,13 @@
 <h1>My Products </h1>
-<% @products.first(10).each do |product| %>
-<p> <%= image_tag product.img_main,alt: 'fun' %> </p>
-  <p> <%= link_to product.brand_name, products_path(product) %> </p>
-  <p> <%= link_to product.description, products_path(product) %> </p>
+<% @products.each do |product| %>
+  <%= link_to sub_product_path(product.sub_products[0]) do %>
+    <div class="card" style="width: 22rem; text-decoration: none;">
+      <%= image_tag product.sub_products[0].img_main, class: "card-img-top", alt: 'fun' %>
+      <div class="card-body">
+        <h5 class="card-title text-dark"> <%= product.brand_name%> </h5>
+        <h6 class="card-title text-secondary"> <%= product.name%> </h6>
+        <p class="card-text text-secondary"> <%= product.description%> </p>
+      </div>
+    </div>
+  <% end %>
 <% end %>

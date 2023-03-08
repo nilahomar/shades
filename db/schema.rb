@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_07_021916) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_07_210710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,14 +53,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_021916) do
     t.string "description"
     t.string "benefits"
     t.string "brand_name"
-    t.bigint "color_shade_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "shade_hex"
-    t.string "product_name"
-    t.string "img_main"
-    t.string "img_alt"
-    t.index ["color_shade_id"], name: "index_products_on_color_shade_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -72,6 +66,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_021916) do
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "sub_products", force: :cascade do |t|
+    t.string "name"
+    t.string "shade_hex"
+    t.string "img_main"
+    t.string "img_alt"
+    t.bigint "product_id", null: false
+    t.bigint "color_shade_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["color_shade_id"], name: "index_sub_products_on_color_shade_id"
+    t.index ["product_id"], name: "index_sub_products_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -95,8 +102,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_07_021916) do
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "users"
-  add_foreign_key "products", "color_shades"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
+  add_foreign_key "sub_products", "color_shades"
+  add_foreign_key "sub_products", "products"
   add_foreign_key "users", "color_shades"
 end
