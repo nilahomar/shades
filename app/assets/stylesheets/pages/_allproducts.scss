@@ -1,0 +1,59 @@
+.products-container{
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2rem;
+
+
+  a{
+    text-decoration: none;
+  }
+}
+
+.products-card {
+  width: 400px;
+  height: 500px;
+  background-color: $card-color;
+  padding: 1rem;
+
+
+  img{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.heart-icon {
+  text-align: right;
+  padding: 1rem;
+
+  img{
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.image-price{
+  display: flex;
+  align-items: end;
+  gap: 3rem;
+
+  .price{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+  }
+}
+
+.product-content{
+  color: $secondary;
+  .brand-name{
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+}
