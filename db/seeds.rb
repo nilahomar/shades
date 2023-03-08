@@ -1,14 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-Product.destroy_all
-
 require 'json'
 # this is my seed page
+
+Product.destroy_all
+SubProduct.destroy_all
+ColorShade.destroy_all
 
 color_shades = {
   'monk1' => '#f6ede4',
@@ -39,7 +34,6 @@ end
 
 def find_closest_shade(shade_hex, color_shades_rgb)
   target = hex_to_rgb(shade_hex)
-  p color_shades_rgb.map { |key, value| [euclidean_distance(target, value), key] }.min
   return color_shades_rgb.map { |key, value| [euclidean_distance(target, value), key] }.min[1]
 end
 
@@ -48,32 +42,36 @@ def create_product(path, color_shades)
   data_hash = JSON.parse(file)
 
   color_shades_rgb = color_shades.map { |k, v| [k, hex_to_rgb(v)] }
-  all_products = []
 
-  data_hash.each do |_k, product_val|
-    product_val['variants'].each do |variant|
+  data_hash.each do |_k, product|
+    product_id = Product.create({
+      'name' => product['name'],
+      'brand_name' => product['variants'][0]['brand_name'],
+      'rating' => product['rating'],
+      'benefits' => product['benefits'],
+      'description' => product['description']
+    }).id
+
+    sub_products = []
+    product['variants'].each do |variant|
       sn = find_closest_shade(variant['shade_hex'], color_shades_rgb)
       color_shade_obj = ColorShade.where(shade_name: sn).take
-      all_products << {
+      sub_products << {
         'name' => variant['name'],
         'shade_hex' => variant['shade_hex'],
-        'product_name' => variant['product_name'],
-        'brand_name' => variant['brand_name'],
-        'rating' => product_val['rating'],
-        'benefits' => product_val['benefits'],
-        'description' => product_val['description'],
         'img_main' => variant['cloudinary_url'][0],
         'img_alt' => variant['cloudinary_url'][1],
-        'color_shade_id' => color_shade_obj.id
+        'color_shade_id' => color_shade_obj.id,
+        'product_id' => product_id
       }
     end
+    SubProduct.create(sub_products)
   end
-  Product.create(all_products)
 end
 
-def creat_color_shades(color_shades)
+def create_color_shades(color_shades)
   ColorShade.create(color_shades.map { |key, value| { "shade_name" => key, "shade_hex" => value } })
 end
 
-creat_color_shades(color_shades)
+create_color_shades(color_shades)
 create_product('db/cloudinary_data_page_1.json', color_shades)
