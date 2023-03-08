@@ -1,19 +1,20 @@
-<h2><%=@product.brand_name %></h2>
-<div>
-  <%= image_tag @sub_product.img_main, class: "card-img-top", alt: 'fun' %>
-  <div>
-    <h6> <%= @product.name%> </h6>
-    <h6> <%= @sub_product.name%> </h6>
-    <p> <%= @product.description%> </p>
-    <p> <%= @product.price %> </p>
-
+<h2 class="product-heading"><%= @product.brand_name %></h2>
+<div class="product-card-container">
+  <div class="card-product">
+    <%= image_tag @sub_product.img_main, class: "card-img-top", alt: "fun" %>
+    <div class="card-product-infos">
+      <h4> <%= @product.name %> </h4>
+      <p> <%= @sub_product.name %> </p>
+      <p> <%= @product.description %> </p>
+      <p> <%= @product.rating %> </p>
+      <ul class="color-shades">
+      <% @product.sub_products.each do |sub| %>
+        <%= link_to sub_product_path(sub) do %>
+          <li style="background-color: <%= sub.shade_hex %>;"> </li>
+        <% end %>
+      <% end %>
+      </ul>
+      <p class="price">Price : <%= @product.price %>$ </p>
+    </div>
   </div>
 </div>
-<ul>
-  <% @product.sub_products.each do |sub| %>
-    <%= link_to sub_product_path(sub) do %>
-      <li style="margin: 5px; height: 40px; width: 40px; background: <%= sub.shade_hex %>;"> </li>
-    <% end %>
-  <% end %>
-</ul>
-<P>REVIEWS</P>
