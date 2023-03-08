@@ -49,7 +49,8 @@ def create_product(path, color_shades)
       'brand_name' => product['variants'][0]['brand_name'],
       'rating' => product['rating'],
       'benefits' => product['benefits'],
-      'description' => product['description']
+      'description' => product['description'],
+      'price' => product['price']
     }).id
 
     sub_products = []
