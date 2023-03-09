@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :sub_products, only: [:show]
   get "my_orders", to: "orders#my_orders", as: :my_orders
-  get "my_cart", to: "orders#my_cart", as: :my_cart
+  get "my_cart", to: "order_products#show", as: :my_cart
   get "pay_products", to: "orders#pay_products", as: :pay_products
+
 end
