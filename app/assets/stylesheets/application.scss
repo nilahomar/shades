@@ -10,3 +10,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+.shoppingCardCirle{
+  width: 30px;
+  height: 30px;
+  background-color: #ff00009c;
+  position: absolute;
+  border-radius: 50%;
+  top: 13px;
+  right: 24px;
+  display: none;
+  text-align: center;
+}
+
+.shoppingcard_image_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
