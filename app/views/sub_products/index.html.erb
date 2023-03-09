@@ -1,13 +1,26 @@
 <h1> Products for selected shade</h1>
+<div class="products-container">
 <% @sub_products.shuffle.each do |sub_product| %>
   <%= link_to sub_product_path(sub_product) do %>
-    <div class="card" style="width: 22rem;">
-      <%= image_tag sub_product.img_main, class: "card-img-top", alt: 'fun' %>
-      <div class="card-body">
-        <h5 class="card-title text-dark"> <%= sub_product.product.brand_name%> </h5>
-        <h6 class="card-title text-secondary"> <%= sub_product.product.name%> </h6>
-        <p class="card-text text-secondary"> <%= sub_product.product.description%> </p>
+    <div class="products-card">
+        <div class="heart-icon">
+          <%= image_tag "heart.png" %>
+        </div>
+        <div class="image-price">
+          <%= image_tag sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
+          <p class="price">$<%= sub_product.product.price %></p>
+        </div>
+      <div class="product-content">
+        <h5 class="brand-name"> <%= sub_product.product.brand_name %> </h5>
+        <p> <%= sub_product.product.name %> </p>
+        <p> <%= sub_product.product.description %> </p>
       </div>
+
+       <div class="d-flex justify-content-around">
+          <p class="my-button">Add to cart</p>
+          <p class="my-button">Buy</p>
+        </div>
     </div>
   <% end %>
 <% end %>
+</div>
