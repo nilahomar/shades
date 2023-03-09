@@ -10,10 +10,10 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body data-controller="cart navbar" data-cart-product-value="<%= @product["id"].to_json %>">
+  <body data-controller="cart navbar" data-cart-product-value="<%= current_user ? current_user.orders.to_json : nil %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+      <%= yield %>
     <%= render "shared/footer" %>
   </body>
 </html>
