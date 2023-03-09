@@ -1,7 +1,10 @@
 .navbar-lewagon {
+  position: fixed;
   height: 11vh;
+  width: 100%;
+  background-color: rgba($color: $card-color, $alpha: 0.3);
   justify-content: space-between;
-  background-color: #F3E2E2;
+  z-index: 100;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,4 +22,23 @@
 .nav-item{
   margin-right: 15px;
   display: flex !important;
+}
+
+.img.logo{
+  width: 30px;
+}
+
+.form-control {
+  border-bottom: black;
+  text-decoration: solid;
+  //background-color: red;
+  text-decoration: solid;
+  border: none;
+  border-bottom: 1px solid black;
+
+}
+
+.search-img{
+  width: 30px;
+
 }
