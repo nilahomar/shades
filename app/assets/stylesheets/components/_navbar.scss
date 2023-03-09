@@ -1,7 +1,19 @@
 .navbar-lewagon {
+  position: fixed;
   height: 11vh;
+  width: 100%;
   justify-content: space-between;
-  background-color: #F3E2E2;
+  z-index: 100;
+}
+
+.navbar-transparent-background {
+  background-color: rgba($color: $card-color, $alpha: 0.3);
+  transition: 0.5s background-color ease;
+}
+
+.navbar-background {
+  background-color: rgba($color: $card-color, $alpha: 1);
+  transition: 0.5s background-color ease;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,11 +24,31 @@
   width: 45px;
 }
 
-.nav-cart{
+.nav-cart {
   width: 30px;
 }
 
-.nav-item{
+.nav-item {
+  justify-content: space-between;
   margin-right: 15px;
   display: flex !important;
+  
+}
+
+.img.logo {
+  width: 30px;
+}
+
+.form-control {
+  background-color: transparent;
+  border-bottom: black;
+  text-decoration: solid;
+  //background-color: red;
+  text-decoration: solid;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.search-img {
+  width: 30px;
 }
