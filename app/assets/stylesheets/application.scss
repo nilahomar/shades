@@ -2,6 +2,7 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import "config/core_layout";
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
@@ -11,8 +12,7 @@
 @import "components/index";
 @import "pages/index";
 
-
-.shoppingCardCirle{
+.shoppingCardCirle {
   width: 30px;
   height: 30px;
   background-color: #ff00009c;
@@ -24,7 +24,7 @@
   text-align: center;
 }
 
-.shoppingcard_image_container{
+.shoppingcard_image_container {
   display: flex;
   align-items: center;
   justify-content: center;
