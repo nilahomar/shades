@@ -2,9 +2,18 @@
   position: fixed;
   height: 11vh;
   width: 100%;
-  background-color: rgba($color: $card-color, $alpha: 0.3);
   justify-content: space-between;
   z-index: 100;
+}
+
+.navbar-transparent-background {
+  background-color: rgba($color: $card-color, $alpha: 0.3);
+  transition: 0.5s background-color ease;
+}
+
+.navbar-background {
+  background-color: rgba($color: $card-color, $alpha: 1);
+  transition: 0.5s background-color ease;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,16 +24,16 @@
   width: 45px;
 }
 
-.nav-cart{
+.nav-cart {
   width: 30px;
 }
 
-.nav-item{
+.nav-item {
   margin-right: 15px;
   display: flex !important;
 }
 
-.img.logo{
+.img.logo {
   width: 30px;
 }
 
@@ -35,10 +44,8 @@
   text-decoration: solid;
   border: none;
   border-bottom: 1px solid black;
-
 }
 
-.search-img{
+.search-img {
   width: 30px;
-
 }
