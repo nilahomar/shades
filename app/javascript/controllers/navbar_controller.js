@@ -7,7 +7,20 @@ export default class extends Controller {
     if (this.hasBannerTarget) {
       this.navbarTarget.classList.add("navbar-transparent-background");
     } else {
-      console.log("There is no banner");
+      this.navbarTarget.classList.add("navbar-background");
+    }
+  }
+
+  scrollAxis() {
+    if (
+      this.hasBannerTarget &&
+      window.scrollY >= this.bannerTarget.offsetHeight
+    ) {
+      this.navbarTarget.classList.add("navbar-background");
+      this.navbarTarget.classList.remove("navbar-transparent-background");
+    } else {
+      this.navbarTarget.classList.remove("navbar-background");
+      this.navbarTarget.classList.add("navbar-transparent-background");
     }
   }
 }

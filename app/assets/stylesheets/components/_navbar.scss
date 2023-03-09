@@ -8,6 +8,12 @@
 
 .navbar-transparent-background {
   background-color: rgba($color: $card-color, $alpha: 0.3);
+  transition: 0.5s background-color ease;
+}
+
+.navbar-background {
+  background-color: rgba($color: $card-color, $alpha: 1);
+  transition: 0.5s background-color ease;
 }
 
 .navbar-lewagon .navbar-collapse {
