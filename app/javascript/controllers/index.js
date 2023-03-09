@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import CartController from "./cart_controller"
+application.register("cart", CartController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
