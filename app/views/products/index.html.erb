@@ -1,7 +1,6 @@
-<h1>My Products </h1>
+<h1 class="foundation-heading">Foundations</h1>
 <div class="products-container">
   <% @products.each do |product| %>
-
       <div class="products-card">
         <div class="heart-icon">
           <%= image_tag "heart.png" %>
@@ -18,7 +17,7 @@
 
         </div>
         <div class="d-flex justify-content-around">
-          <p class="my-button"> <%= link_to "Choose your shade",sub_product_path(product.sub_products[0])  %></p>
+          <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>
         </div>
       </div>
   <% end %>
