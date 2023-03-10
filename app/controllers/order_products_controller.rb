@@ -1,4 +1,5 @@
 class OrderProductsController < ApplicationController
+  before_action :authenticate_user!
   def show
     @sub_product = SubProduct.find(params[:id])
   end
@@ -15,7 +16,7 @@ class OrderProductsController < ApplicationController
 
       @order_product.sub_product_id = @sub_product.id
 
-    
+
       @order_product.save!
       redirect_to sub_product_path(@sub_product)
   end
