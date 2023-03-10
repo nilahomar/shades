@@ -1,4 +1,4 @@
-<h1> Products for selected shade</h1>
+<h1 class="foundation-heading"> Foundations for Your Skin Tone</h1>
 <div class="products-container">
 <% @sub_products.shuffle.each do |sub_product| %>
   <%= link_to sub_product_path(sub_product) do %>
@@ -13,12 +13,12 @@
       <div class="product-content">
         <h5 class="brand-name"> <%= sub_product.product.brand_name %> </h5>
         <p> <%= sub_product.product.name %> </p>
-        <p> <%= sub_product.product.description %> </p>
+        <p> <%= sub_product.product.description.first(50) %> </p>
       </div>
 
-       <div class="d-flex justify-content-around">
-          <p class="my-button">Add to cart</p>
-          <p class="my-button">Buy</p>
+       <div class="justify-content-around">
+          <p class="my-button button-color">Add to cart</p>
+          <p class="my-button button-color">Buy</p>
         </div>
     </div>
   <% end %>
