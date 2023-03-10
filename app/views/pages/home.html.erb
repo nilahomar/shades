@@ -1,4 +1,34 @@
 <%= render "banner" %>
+
+  <h2 class="home-heading"> Our New Arrivals </h2>
+  <div class="products-container">
+  <% @products.first(3).each do |product| %>
+      <div class="products-card">
+        <div class="heart-icon">
+          <%= image_tag "heart.png" %>
+        </div>
+        <div class="image-price">
+          <%= link_to sub_product_path(product.sub_products[0]) do %>
+          <%= image_tag product.sub_products[0].img_main, alt: "foundation images" %>
+          <% end %>
+          <p class="price">$<%= product.price %></p>
+        </div>
+        <div class="product-content">
+          <h5 class="brand-name"> <%= link_to product.brand_name, sub_product_path(product.sub_products[0]) %> </h5>
+          <p> <%= product.description.first(100) %> </p>
+
+        </div>
+        <div class="d-flex justify-content-around">
+          <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>
+        </div>
+      </div>
+  <% end %>
+</div>
+
+  <div class="discover-more">
+    <%= link_to "Discover More", products_path(@product) %>
+  </div>
+
 <h1 class="home-heading">HOW IT WORKS</h1>
 <div class="home-cards-container">
   <div class="home-card">
