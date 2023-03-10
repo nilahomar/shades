@@ -16,15 +16,15 @@
           <%= form_with url: products_path, method: :get, class: "d-flex" do %>
             <%= image_submit_tag("suche.png", class: "search-img") %>
             <%= text_field_tag :query,
-                                params[:query],
-                                class: "form-control",
-                                placeholder: "" %>
+                               params[:query],
+                               class: "form-control",
+                               placeholder: "" %>
             <% end %>
           </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
-            <%# <h1><%= @order_products_items %></h1>
+            <h1><%= @order_products_items %></h1>
           </li>
           <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
