@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :order_products
+  has_one :color_shade
 end
