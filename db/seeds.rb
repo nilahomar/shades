@@ -5,6 +5,8 @@ Product.destroy_all
 SubProduct.destroy_all
 ColorShade.destroy_all
 
+User.create(email: "test@test.com", password: "123456", first_name:"nila", last_name: "homar")
+
 color_shades = {
   'monk1' => '#f6ede4',
   'monk2' => '#f3e7db',

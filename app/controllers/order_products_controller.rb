@@ -1,6 +1,6 @@
 class OrderProductsController < ApplicationController
   def show
-    @sub_product = SubProduct.find(params[:id])
+    @order_product = OrderProduct.find(params[:id])
   end
 
 
@@ -14,10 +14,16 @@ class OrderProductsController < ApplicationController
       @order_product.user_id = current_user.id
 
       @order_product.sub_product_id = @sub_product.id
+      @order_product.user = current_user
 
-    
       @order_product.save!
       redirect_to sub_product_path(@sub_product)
+  end
+
+  def destroy
+    @order_product = OrderProduct.find(params[:id])
+    @order_product.destroy
+    redirect_to my_cart_path, status: :see_other
   end
 
 

@@ -1,0 +1,8 @@
+<h2>Shopping Bag</h2>
+<% @cart.each do |item| %>
+    <p><%= item.sub_product.img_main %></p>
+    <p><%= item.sub_product.product.name %></p>
+    <p><%= item.sub_product.name %></p>
+    <p><%= item.sub_product.product.price %></p>
+    <%= link_to "Delete", order_product_path(item), data: { turbo_method: :delete } %>
+<% end %>
