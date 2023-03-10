@@ -7,6 +7,7 @@
   a{
     text-decoration: none;
   }
+
 }
 
 .products-card {
@@ -54,5 +55,9 @@
   .brand-name{
     margin-top: 1rem;
     font-size: 1.5rem;
+
+    a{
+      color: $secondary;
+    }
   }
 }
