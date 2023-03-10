@@ -17,6 +17,9 @@
       <p class="price">Price : <%= @product.price %>$ </p>
     </div>
     <div class="d-flex justify-content-around">
+
+
+             <%= link_to "Add to Cart", order_product_custom_create_path(subproduct: @sub_product), data: { turbo_method: :POST } %>
           <p class="my-button" data-action="click->cart#updateShopping">Add to cart</p>
           <p class="my-button">Buy</p>
     </div>
