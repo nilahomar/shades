@@ -12,15 +12,6 @@
 
     <div class="collapse navbar-collapse me-3" id="navbarSupportedContent" style="font-weight: 600;">
       <ul class="navbar-nav me-auto">
-        <li>
-          <%= form_with url: products_path, method: :get, class: "d-flex" do %>
-            <%= image_submit_tag("suche.png", class: "search-img") %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: ""
-          %>
-        </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "Home", "#", class: "nav-link" %>
@@ -45,7 +36,7 @@
                                params[:query],
                                class: "form-control",
                                placeholder: "Search" %>
-          <% end %>
+            <% end %>
 
           <li class="nav-item">
 
@@ -56,7 +47,6 @@
               <%= image_tag "shopping-cart.png", class: "nav-cart" %>
             </div>
           </li>
-          <% end %>
         <% end %>
       </ul>
     </div>
