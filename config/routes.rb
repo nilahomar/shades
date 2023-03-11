@@ -7,12 +7,12 @@ Rails.application.routes.draw do
     resources :sub_products, only: [:index]
   end
   resources :sub_products, only: [:show]
-  resources :order_products, only: [:destroy]
+  resources "order_products", only: [:index, :destroy]
+  resources "orders", only: [:index, :create]
+
   get "my_orders", to: "orders#my_orders", as: :my_orders
   post "order_products", to: "order_products#custom_create", as: :order_product_custom_create
-  get "my_cart", to: "orders#show", as: :my_cart
+  # get "my_cart", to: "orders#show", as: :my_cart
 
   get "pay_products", to: "orders#pay_products", as: :pay_products
-
-
 end
