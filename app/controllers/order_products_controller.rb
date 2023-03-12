@@ -2,7 +2,7 @@ class OrderProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cart = current_user.order_products.where(status: true)
+    @cart = current_user.order_products.where(active: true)
   end
 
   def show
@@ -16,7 +16,7 @@ class OrderProductsController < ApplicationController
     @order_product.user_id = current_user.id
     @order_product.sub_product_id = @sub_product.id
     @order_product.user = current_user
-    @order_product.status = true
+    @order_product.active = true
     @order_product.quantity = 1
     @order_product.save!
     redirect_to sub_product_path(@sub_product)
