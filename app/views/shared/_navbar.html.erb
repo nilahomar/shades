@@ -38,7 +38,7 @@
               </div>
             <div class="shoppingcard_image_container">
               <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
-                <h6> <%= current_user.order_products.where(status: true).count %> </h6>
+                <h6> <%= current_user.order_products.where(active: true).count %> </h6>
               </div>
               <%= link_to order_products_path do %>
               <%= image_tag "shopping-cart.png", class: "nav-cart" %>

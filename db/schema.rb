@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_11_202802) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_12_194820) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,7 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_202802) do
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "sub_product_id", null: false
     t.index ["product_id"], name: "index_favourites_on_product_id"
+    t.index ["sub_product_id"], name: "index_favourites_on_sub_product_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
@@ -35,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_202802) do
     t.datetime "updated_at", null: false
     t.bigint "sub_product_id"
     t.bigint "user_id", null: false
-    t.boolean "status"
+    t.boolean "active"
     t.integer "quantity"
     t.index ["sub_product_id"], name: "index_order_products_on_sub_product_id"
     t.index ["user_id"], name: "index_order_products_on_user_id"
@@ -46,6 +48,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_202802) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price"
+    t.integer "quantity"
+    t.string "status"
+    t.bigint "sub_product_id", null: false
+    t.index ["sub_product_id"], name: "index_orders_on_sub_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -101,9 +108,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_11_202802) do
   end
 
   add_foreign_key "favourites", "products"
+  add_foreign_key "favourites", "sub_products"
   add_foreign_key "favourites", "users"
   add_foreign_key "order_products", "sub_products"
   add_foreign_key "order_products", "users"
+  add_foreign_key "orders", "sub_products"
   add_foreign_key "orders", "users"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "users"
