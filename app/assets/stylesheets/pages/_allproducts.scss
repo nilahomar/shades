@@ -18,17 +18,11 @@
 }
 
 .products-card {
-<<<<<<< Updated upstream
   width: 400px;
   // height: 500px;
   background-color: $card-color;
   padding: 1rem;
 
-=======
-  background-color: $card-color;
-  padding: 1rem;
-  margin: 0 auto;
->>>>>>> Stashed changes
 
   img{
     width: 100%;
@@ -50,14 +44,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-<<<<<<< Updated upstream
   gap: 2rem;
-  padding: 1rem; 
-=======
-  gap: 1.2rem;
   padding: 1rem;
-  flex-direction: column;
->>>>>>> Stashed changes
 
   .price{
     width: 70px;
@@ -73,11 +61,6 @@
 
 .product-content{
   color: $secondary;
-<<<<<<< Updated upstream
-=======
-  padding: 0.5rem;
-  text-align: center;
->>>>>>> Stashed changes
   .brand-name{
     margin-top: 1rem;
     font-size: 1.5rem;
