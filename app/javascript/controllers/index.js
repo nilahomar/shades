@@ -7,5 +7,8 @@ import { application } from "./application"
 import CartController from "./cart_controller"
 application.register("cart", CartController)
 
+import ColorSelectorController from "./color_selector_controller"
+application.register("color-selector", ColorSelectorController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
