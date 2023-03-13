@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :sub_products, only: [:index]
   end
   resources :sub_products, only: [:show]
-  resources "order_products", only: [:index, :destroy]
+  resources "order_products", only: [:index, :destroy, :update]
   resources "orders", only: [:index, :create, :update]
 
   # get "my_orders", to: "orders#my_orders", as: :my_orders
