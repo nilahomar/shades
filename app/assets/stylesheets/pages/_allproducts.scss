@@ -7,7 +7,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-  gap: 2rem;
+  gap: 3rem;
+  width: 80%;
+  margin: 0 auto;
   padding: 4rem;
 
   a{
@@ -16,11 +18,11 @@
 }
 
 .products-card {
-  width: 400px;
   // height: 500px;
   background-color: $card-color;
-  padding: 2rem;
-
+  padding: 1rem;
+  margin: 0 auto;
+  margin: 0 auto;
 
   img{
     width: 100%;

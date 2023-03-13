@@ -2,26 +2,23 @@ class FavouritesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # @products = Product.all
-    # @color_shades = ColorShade.all
-    @favourite = Favourite.all
+    @favourites = current_user.favourites
   end
 
   def show
     @favourite = Favourite.find(params[:id])
   end
 
-  def create
-    @favourite = Favourite.new
-    @sub_product = SubProduct.find(params[:subproduct])
 
-    @favourite.user_id = current_user.id
-    @favourite.sub_product_id = @sub_product.id
-    @favourite.user = current_user
-    # @favourite.active = true
-    # @favourite.quantity = 1
-    @favourite.save!
-    redirect_to sub_product_path(@sub_product)
+  def create
+    if !current_user.favourites.where(sub_product_id: params[:sub_product]).exists?
+      @favourite = Favourite.create({
+        user_id: current_user.id,
+        sub_product_id: params[:sub_product]
+      })
+      @favourite.save!
+    end
+    redirect_to sub_product_path(params[:sub_product])
   end
 
   def destroy
