@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :sub_products, only: [:show]
   resources "order_products", only: [:index, :destroy]
   resources "orders", only: [:index, :create, :update]
+  resources "favourites", only: [:index, :create, :destroy]
 
   # get "my_orders", to: "orders#my_orders", as: :my_orders
   post "order_products", to: "order_products#custom_create", as: :order_product_custom_create
