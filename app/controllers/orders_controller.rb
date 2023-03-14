@@ -7,19 +7,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    current_user.order_products.where(active: true).each do |item|
-      @order = Order.create({
-        user_id: item.user_id,
-        sub_product_id: item.sub_product_id,
-        quantity: item.quantity,
-        price: item.sub_product.product.price,
-        status: "ORDERED"
-      })
-      if @order.save!
-        item.update(
-          active: false
-        )
-      end
+    current_user.order_products.each do |item|
+      @order = Order.create(
+        {
+          user_id: item.user_id,
+          sub_product_id: item.sub_product_id,
+          quantity: item.quantity,
+          price: item.sub_product.product.price,
+          status: "ORDERED"
+        }
+      )
+      item.destroy if @order.save!
     end
     redirect_to order_products_path
   end
