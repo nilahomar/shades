@@ -4,7 +4,7 @@
   </button>
 
 
-  <div class="dropdown-menu color-dropdown" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu color-dropdown" id="scroll-box" aria-labelledby="dropdownMenuButton">
     <% unless @color_shades.nil? %>
       <% @color_shades.each do |shade| %>
         <%= link_to color_shade_sub_products_path(shade) do %>
