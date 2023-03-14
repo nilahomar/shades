@@ -2,7 +2,7 @@ class OrderProductsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cart = current_user.order_products.where(active: true)
+    @cart = current_user.order_products
   end
 
   def show
@@ -10,16 +10,26 @@ class OrderProductsController < ApplicationController
   end
 
   def custom_create
-    @order_product = OrderProduct.new
-    @sub_product = SubProduct.find(params[:subproduct])
-
-    @order_product.user_id = current_user.id
-    @order_product.sub_product_id = @sub_product.id
-    @order_product.user = current_user
-    @order_product.active = true
-    @order_product.quantity = 1
-    @order_product.save!
-    redirect_to sub_product_path(@sub_product)
+    op = current_user.order_products.where(sub_product_id: params[:subproduct])
+    if op.exists?
+      op = op.take
+      op.update(
+        {
+          quantity: op.quantity + 1
+        }
+      )
+    else
+      @order_product = OrderProduct.create(
+        {
+          user_id: current_user.id,
+          sub_product_id: params[:subproduct],
+          user: current_user,
+          quantity: 1
+        }
+      )
+      @order_product.save!
+    end
+    redirect_to sub_product_path(params[:subproduct])
   end
 
   def destroy
