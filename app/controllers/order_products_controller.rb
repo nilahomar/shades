@@ -19,7 +19,7 @@ class OrderProductsController < ApplicationController
     @order_product.active = true
     @order_product.quantity = 1
     @order_product.save!
-    redirect_to sub_product_path(@sub_product)
+    # redirect_to sub_product_path(@sub_product)
   end
 
   def destroy

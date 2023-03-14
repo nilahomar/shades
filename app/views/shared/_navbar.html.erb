@@ -11,7 +11,7 @@
     </button>
 
     <div class="collapse navbar-collapse me-3" id="navbarSupportedContent" style="font-weight: 600;">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto gap-3">
         <li>
           <%= form_with url: products_path, method: :get, class: "d-flex" do %>
             <%= image_submit_tag("suche.png", class: "search-img") %>
@@ -22,18 +22,11 @@
             <% end %>
           </li>
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-              <% # <h1><%= @order_products_items %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown gap-3">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "All Foundations", products_path, class: "dropdown-item" %>
+              <%= link_to "Favourites", favourites_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             <div class="shoppingcard_image_container">
@@ -41,7 +34,7 @@
                 <h6> <%= current_user.order_products.where(active: true).count %> </h6>
               </div>
               <%= link_to order_products_path do %>
-              <%= image_tag "shopping-cart.png", class: "nav-cart" %>
+                <%= image_tag "shopping-cart.png", class: "nav-cart" %>
               <% end %>
             </div>
           </li>
