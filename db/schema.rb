@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_163835) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_231334) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_163835) do
     t.datetime "updated_at", null: false
     t.bigint "sub_product_id"
     t.bigint "user_id", null: false
-    t.boolean "active"
     t.integer "quantity"
     t.index ["sub_product_id"], name: "index_order_products_on_sub_product_id"
     t.index ["user_id"], name: "index_order_products_on_user_id"
@@ -80,6 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_163835) do
     t.integer "quantity"
     t.string "status"
     t.bigint "sub_product_id", null: false
+    t.datetime "delivery_date"
     t.index ["sub_product_id"], name: "index_orders_on_sub_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
