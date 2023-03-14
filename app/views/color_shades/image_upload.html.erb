@@ -1,0 +1,18 @@
+<div class="products-container">
+  <% if current_user.pic.attached? %>
+    <%= image_tag current_user.pic, alt: "foundation image" %>
+  <% end %>
+  <%= form_for :this_user, url: "color_shades" do |f| %>
+    <%= f.file_field :pic, placeholder: 'Upload picture', direct_upload: true %>
+    <%= f.submit "Upload", class: "upload-button" %>
+  <% end %>
+  <div id="color-selector"></div>
+  <h2> Select your shade </h2>
+  <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
+    <% @color_shades.each do |shade| %>
+      <%= link_to color_shade_sub_products_path(shade) do %>
+        <li style="margin: 5px; height: 40px; width: 40px; background: <%= shade.shade_hex %>;"> </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

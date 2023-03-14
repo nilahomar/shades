@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :orders
   has_many :order_products
   has_one :color_shade
+  has_one_attached :pic
   has_many :favourites
 end

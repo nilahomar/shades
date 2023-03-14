@@ -4,6 +4,7 @@
 @import "config/bootstrap_variables";
 @import "config/core_layout";
 
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
@@ -11,6 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/upload_image";
+
 
 .shoppingCardCirle {
   width: 20px;

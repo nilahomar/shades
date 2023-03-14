@@ -1,0 +1,12 @@
+#color-selector {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2195f300;
+  border: 2px solid #000000;
+  color: #fff;
+  top: 200px;
+  left: 200px;
+}
