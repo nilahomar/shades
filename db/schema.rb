@@ -51,11 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_231334) do
 
   create_table "favourites", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
+    t.bigint "sub_product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "sub_product_id", null: false
-    t.index ["product_id"], name: "index_favourites_on_product_id"
     t.index ["sub_product_id"], name: "index_favourites_on_sub_product_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
@@ -137,7 +135,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_231334) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "favourites", "products"
   add_foreign_key "favourites", "sub_products"
   add_foreign_key "favourites", "users"
   add_foreign_key "order_products", "sub_products"

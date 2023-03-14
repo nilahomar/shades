@@ -1,20 +1,23 @@
 .product-card-container{
   padding:  5rem;
-
+  display: flex;
+  flex-direction: column;
 }
 .product-heading {
   text-align: center;
-  font-family: $shades-font;
+}
+
+.product-card-container{
+  padding:  5rem;
+
 }
 
 .card-product {
-  font-family: $shades-font;
   padding:  25px 25px 25px 25px;
   overflow: hidden;
   background-color: #F3E2E2;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   align-items: center;
-  display: flex;
   //justify-content: space-between;
 }
 
@@ -42,6 +45,7 @@
 }
 
 .color-shades{
+  width: 40%;
 li{
   width:40px;
   height: 40px;
@@ -65,4 +69,22 @@ gap: 1rem;
 .link-button{
   width:300px;
   color: $white;
+}
+
+.show-price{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: $secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+}
+
+.products-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
