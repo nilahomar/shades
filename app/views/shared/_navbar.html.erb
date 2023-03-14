@@ -11,50 +11,50 @@
     </button>
 
     <div class="collapse navbar-collapse me-3" id="navbarSupportedContent" style="font-weight: 600;">
-      <ul class="navbar-nav me-auto">
-        <li>
-          <%= form_with url: products_path, method: :get, class: "d-flex" do %>
-            <%= image_submit_tag("suche.png", class: "search-img") %>
-            <%= text_field_tag :query,
-                               params[:query],
-                               class: "form-control",
-                               placeholder: "" %>
+      <% if user_signed_in? %>
+        <ul class="navbar-nav me-auto">
+          <li>
+            <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+              <%= image_submit_tag("suche.png", class: "search-img") %>
+              <%= text_field_tag :query,
+                                params[:query],
+                                class: "form-control",
+                                placeholder: "" %>
             <% end %>
           </li>
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-              <%# <%  <h1><%= @order_products_items %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-              </div>
-            <div class="shoppingcard_image_container">
-              <% cart_items_count = current_user.order_products.sum(:quantity) %>
-              <% if cart_items_count > 0 %>
-                <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
-                  <h6> <%= cart_items_count %> </h6>
-                </div>
-              <% end %>
-              <%= link_to order_products_path do %>
-              <%= image_tag "shopping-cart.png", class: "nav-cart" %>
-              <% end %>
+        </ul>
+        <li class="nav-item active">
+          <%= link_to "Home", "#", class: "nav-link" %>
+            <%# <%  <h1><%= @order_products_items %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Messages", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <%= link_to "Action", "#", class: "dropdown-item" %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
             </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            <%= link_to "Sign UP", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+          <div class="shoppingcard_image_container">
+            <% cart_items_count = current_user.order_products.sum(:quantity) %>
+            <% if cart_items_count > 0 %>
+              <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
+                <h6> <%= cart_items_count %> </h6>
+              </div>
+            <% end %>
+            <%= link_to order_products_path do %>
+            <%= image_tag "shopping-cart.png", class: "nav-cart" %>
+            <% end %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Sign UP", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </div>
   </div>
 </div>
