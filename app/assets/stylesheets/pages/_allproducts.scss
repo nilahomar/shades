@@ -18,6 +18,21 @@
   }
 }
 
+.products-container-home{
+  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 3rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 4rem;
+
+  a{
+    text-decoration: none;
+  }
+}
+
 .products-card {
   // height: 500px;
   flex-direction: column;

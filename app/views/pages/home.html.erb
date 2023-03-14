@@ -1,19 +1,20 @@
 <%= render "banner" %>
 
   <h2 class="home-heading"> Our New Arrivals </h2>
-  <div class="products-container">
+  <div class="products-container-home">
   <% @products.first(3).each do |product| %>
       <div class="products-card">
+      <div>
         <div class="image-price">
           <%= link_to sub_product_path(product.sub_products[0]) do %>
           <%= image_tag product.sub_products[0].img_main, alt: "foundation images" %>
           <% end %>
-          <p class="price">$<%= product.price %></p>
+          </div>
+          <div class='d-flex w-100 justify-content-center'> <div class="price-product"><p>$<%= product.price %></p></div></div>
         </div>
         <div class="product-content">
           <h5 class="brand-name"> <%= link_to product.brand_name, sub_product_path(product.sub_products[0]) %> </h5>
-          <p> <%= product.description.first(100) %> </p>
-
+          
         </div>
         <div class="d-flex justify-content-around">
           <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>
