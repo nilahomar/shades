@@ -3,9 +3,11 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
 
+document.addEventListener("turbo:load", () => {
+  dragElement(document.getElementById("color-selector"));
+  colorElement(document.getElementById("shade-pick"));
+})
 
-dragElement(document.getElementById("color-selector"));
-colorElement(document.getElementById("shade-pick"));
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -48,4 +50,3 @@ function colorElement(elmnt) {
     document.getElementById("color-selector").style.backgroundColor = event.target.style.backgroundColor;
   });
 }
- export {dragElement, colorElement}
