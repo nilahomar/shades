@@ -5,6 +5,7 @@ class SubProductsController < ApplicationController
   end
 
   def show
+    @color_shades = ColorShade.all
     @sub_product = SubProduct.find(params[:id])
     @product = @sub_product.product
   end
