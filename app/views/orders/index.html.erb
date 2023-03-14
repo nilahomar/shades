@@ -7,7 +7,7 @@
         </div>
         <div class="image-price">
           <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
-          <p class="price">$<%= item.price %></p>
+          <p class="price">$<%= item.price * item.quantity %></p>
         </div>
       <div class="product-content">
         <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
@@ -15,9 +15,10 @@
         <p> <%= item.sub_product.product.description.first(50) %> </p>
         <p> Quantity: <%= item.quantity %></p>
       </div>
-      <p><%= item.status %></p>
+      <p>Status: <%= item.status %></p>
       <% if item.status == "ORDERED" %>
-        <div class="justify-content-around">
+        <p> Expected delivery: <%= (item.created_at + 7.days).to_date%></p>
+        <div>
           <%= link_to "Cancel", order_path(item), data: { turbo_method: :patch } %>
         </div>
       <% end %>

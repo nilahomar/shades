@@ -7,7 +7,7 @@
         </div>
         <div class="image-price">
           <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
-          <p class="price">$<%= item.sub_product.product.price %></p>
+          <p class="price">$<%= item.sub_product.product.price * item.quantity %></p>
         </div>
       <div class="product-content">
         <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
