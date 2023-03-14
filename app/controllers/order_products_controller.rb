@@ -28,9 +28,16 @@ class OrderProductsController < ApplicationController
     redirect_to order_products_path, status: :see_other
   end
 
+  def update
+    @order_product = OrderProduct.find(params[:id])
+    @order_product.update(orderproducts_params)
+    redirect_to order_products_path(anchor: "order-product-#{@order_product.id}"), status: 303
+    # anchor means put at # in the url
+  end
+
   private
 
   def orderproducts_params
-    params.require(:restaurant).permit(:name, :address, :rating)
+    params.require(:order_product).permit(:quantity)
   end
 end

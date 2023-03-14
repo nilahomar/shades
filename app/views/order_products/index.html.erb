@@ -1,29 +1,41 @@
 <h1 class="foundation-heading"> Shopping Bag</h1>
-<div class="products-container">
+<div class="products-container-cart">
   <% @cart.each do |item| %>
-    <div class="products-card">
-        <div class="heart-icon">
-          <%= image_tag "heart.png" %>
-        </div>
-        <div class="image-price">
-          <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
-          <p class="price">$<%= item.sub_product.product.price %></p>
-        </div>
-      <div class="product-content">
-        <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
-        <p> <%= item.sub_product.product.name %> </p>
-        <p> <%= item.sub_product.product.description.first(50) %> </p>
-        <p> Quantity: <%= item.quantity %></p>
-      </div>
-
-        <div class="justify-content-around">
+    <div id="order-product-<%= item.id %>" class="products-card-card">
+      <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
+      <div class="product-content w-100">
+        <div class="d-flex justify-content-between w-100">
+          <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
+          <div class="my-button link-button">
           <%= link_to "Delete", order_product_path(item), data: { turbo_method: :delete } %>
+          </div>
         </div>
+        <p> <%= item.sub_product.product.name %> </p>
+        <p> Shade: <%= item.sub_product.color_shade.shade_name %> </p>
+        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center">
+        <%= simple_form_for item, html: { data: { turbo: false } } do |f| %>
+          <%= f.hidden_field :quantity, value: item.quantity - 1 %>
+          <%= f.submit "-", class: "quantity-btn" %>
+        <% end %>
+        <span class="quantity-btn"><%= item.quantity %></span>
+
+        <%= simple_form_for item, html: { data: { turbo: false } } do |f| %>
+          <%= f.hidden_field :quantity, value: item.quantity + 1 %>
+          <%= f.submit "+", class: "quantity-btn" %>
+        <% end %>
+      </div>
+        <div class="image-price mx-4">
+          <span class="price">$<%= item.sub_product.product.price * item.quantity %></span>
+        </div>
+      </div>
+      </div>
     </div>
   <% end %>
-</div>
+  <div class="my-button link-button w-100 mt-4">
+    <%= link_to "Buy", orders_path, data: { turbo_method: :POST }, class: "w-100" %>
+  </div>
 
-<div class="justify-content-around">
-  <p class="my-button link-button"><%= link_to "Buy", orders_path, data: { turbo_method: :POST } %></p>
+  <%#= link_to "orders", orders_path%>
+  </div>
 </div>
-<%= link_to "orders", orders_path%>
