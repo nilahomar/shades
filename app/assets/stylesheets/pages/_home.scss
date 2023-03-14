@@ -55,3 +55,9 @@
     color: $secondary;
   }
 }
+
+
+#scroll-box{
+  max-height: 85vh;
+  overflow-y: scroll;
+}
