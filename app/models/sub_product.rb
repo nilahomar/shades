@@ -3,4 +3,5 @@ class SubProduct < ApplicationRecord
   belongs_to :color_shade
   has_many :orderProducts
   has_many :orders, through: :orderProducts
+  has_many :favourites
 end

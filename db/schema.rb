@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_12_194820) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_111530) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,11 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_194820) do
 
   create_table "favourites", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
+    t.bigint "sub_product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "sub_product_id", null: false
-    t.index ["product_id"], name: "index_favourites_on_product_id"
     t.index ["sub_product_id"], name: "index_favourites_on_sub_product_id"
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
@@ -107,7 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_12_194820) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "favourites", "products"
   add_foreign_key "favourites", "sub_products"
   add_foreign_key "favourites", "users"
   add_foreign_key "order_products", "sub_products"
