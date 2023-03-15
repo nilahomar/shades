@@ -61,3 +61,21 @@
   max-height: 85vh;
   overflow-y: scroll;
 }
+
+.partners {
+  padding: 0 15px 100px 50px;
+}
+
+.partners-images{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+
+
+  img {
+    width: 100%;
+    border-radius: 27px;
+    height: 200px;
+
+  }
+}

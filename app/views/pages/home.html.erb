@@ -14,7 +14,7 @@
         </div>
         <div class="product-content">
           <h5 class="brand-name"> <%= link_to product.brand_name, sub_product_path(product.sub_products[0]) %> </h5>
-          
+
         </div>
         <div class="d-flex justify-content-around">
           <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>
@@ -57,4 +57,13 @@
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
   </div>
+</div>
+
+<div class="partners">
+<h1 class="home-heading">Our Partners</h1>
+<div class="partners-images">
+<%= image_tag "it-cosmetics-logo.png" %>
+<%= image_tag "make-up-forever-logo.jpg" %>
+<%= image_tag "kvd-beauty-logo.jpg" %>
+</div>
 </div>
