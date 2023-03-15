@@ -1,9 +1,9 @@
-.foundation-heading {
-  text-align: center;
-}
+// .foundation-heading {
+//   text-align: center;
+// }
 
 .products-container-cart{
-  padding:  5rem;
+  padding: 5rem;
 
 }
 
@@ -27,17 +27,9 @@
 
 .product-content{
   margin: 25px;
-
-  .brand-name{
-  font-size: 36px;
-
-  }
-  .product-content p {
-    font-weight:900;
-    line-height: 1.4;
-    margin-bottom: 0;
-    margin-top: 8px;
-    font-size: 1.2rem;
+ p {
+    font-size: 1rem;
+    text-align: center;
   }
 }
 

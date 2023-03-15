@@ -36,8 +36,8 @@
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             <div class="shoppingcard_image_container">
-            <% cart_items_count = current_user.order_products.sum(:quantity) %>
-            <% if cart_items_count > 0 %>
+              <% cart_items_count = current_user.order_products.sum(:quantity) %>
+              <% if cart_items_count > 0 %>
               <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
                 <h6> <%= cart_items_count %> </h6>
               </div>
