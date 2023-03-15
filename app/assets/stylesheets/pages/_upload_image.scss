@@ -10,3 +10,36 @@
   top: 200px;
   left: 200px;
 }
+
+.color-picker{
+  width:80%;
+  padding-top: 6vh;
+}
+
+#shade-pick{
+  padding-top:2rem;
+  padding-bottom: 2rem;
+  background-color:$card-color;
+  width:40vw;
+  height:40vw;
+  justify-content: stretch;
+}
+
+// .image-color-selector-container{
+//   display: flex;
+//   align-items: center;
+
+// }
+
+.img-color{
+  width: 40vw;
+}
+
+.image-container{
+  padding:3rem;
+}
+
+.color-container{
+  // display: flex;
+  // align-items: center;
+}
