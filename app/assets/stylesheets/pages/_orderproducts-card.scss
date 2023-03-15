@@ -4,7 +4,6 @@
 
 .products-container-cart{
   padding: 5rem;
-
 }
 
 .products-card-card {
@@ -15,7 +14,6 @@
   align-items: center;
   display: flex;
   width: 100%;
-  margin: 1rem 1rem 1rem 1rem;
   gap: 10px;
 
   .card-img-top{
@@ -29,7 +27,7 @@
   margin: 25px;
  p {
     font-size: 1rem;
-    text-align: center;
+    // text-align: center;
   }
 }
 
@@ -65,4 +63,10 @@ gap: 1rem;
   cursor: pointer;
   margin: 0 5px;
   padding: 5px 10px;
+}
+
+.delete-link-button{
+  img{
+    width: 20px;
+  }
 }
