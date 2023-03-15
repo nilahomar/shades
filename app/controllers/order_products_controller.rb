@@ -29,7 +29,7 @@ class OrderProductsController < ApplicationController
       )
       @order_product.save!
     end
-    redirect_to sub_product_path(params[:subproduct])
+    redirect_to request.referrer
   end
 
   def destroy
@@ -41,8 +41,16 @@ class OrderProductsController < ApplicationController
   def update
     @order_product = OrderProduct.find(params[:id])
     @order_product.update(orderproducts_params)
-    redirect_to order_products_path(anchor: "order-product-#{@order_product.id}"), status: 303
-    # anchor means put at # in the url
+    redirect_to order_products_path, status: 303
+    # anchor means put at # in the url (anchor: "order-product-#{@order_product.id}")
+  end
+
+  def payment
+    @cart = current_user.order_products
+    @sub_total = (@cart.map { |item| item.sub_product.product.price * item.quantity }).sum
+    @vat = 20
+    @vat_amount = @sub_total * @vat / 100
+    @total = @sub_total + @vat_amount
   end
 
   private
