@@ -1,19 +1,31 @@
 <h1 class="foundation-heading"> Select your shade </h1>
-<div class="products-container">
-  <% if current_user.pic.attached? %>
-    <%= image_tag current_user.pic, alt: "foundation image" %>
-  <% end %>
-  <%= form_for :this_user, url: "color_shades" do |f| %>
-    <%= f.file_field :pic, placeholder: 'Upload picture', direct_upload: true %>
-    <%= f.submit "Upload", class: "upload-button" %>
-  <% end %>
- <%# <%= current_user.photo.purge %>
-  <div id="color-selector"></div>
-  <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
-    <% @color_shades.each do |shade| %>
-      <%= link_to color_shade_sub_products_path(shade) do %>
-        <li style="margin: 5px; height: 40px; width: 40px; background: <%= shade.shade_hex %>;"> </li>
-      <% end %>
+<div class="image-container">
+  <div class="image-color-selector-container">
+      <div class="row justify-content-center color-container">
+        <div class="col-6">
+          <% if current_user.pic.attached? %>
+            <%= image_tag current_user.pic, alt: "foundation image", class: "img-color" %>
+          <% end %>
+        </div>
+        <div class="col-6">
+            <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
+              <% @color_shades.each do |shade| %>
+                <%= link_to color_shade_sub_products_path(shade) do %>
+                  <li style="margin: 5px; height: 40px; width: 40px; background: <%= shade.shade_hex %>;"> </li>
+                <% end %>
+              <% end %>
+            </ul>
+         <div id="color-selector"></div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+    <%= form_for :this_user, url: "color_shades" do |f| %>
+      <%= f.file_field :pic, placeholder: 'Upload picture', direct_upload: true %>
+      <%= f.submit "Upload", class: "upload-button" %>
     <% end %>
-  </ul>
+  <%# <%= current_user.photo.purge %>
+
 </div>
