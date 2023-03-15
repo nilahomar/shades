@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       )
       item.destroy if @order.save!
     end
-    redirect_to order_products_path
+    redirect_to orders_path
   end
 
   def update

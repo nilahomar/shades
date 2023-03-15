@@ -1,3 +1,4 @@
+<h1 class="foundation-heading"> Select your shade </h1>
 <div class="products-container">
   <% if current_user.pic.attached? %>
     <%= image_tag current_user.pic, alt: "foundation image" %>
@@ -6,8 +7,8 @@
     <%= f.file_field :pic, placeholder: 'Upload picture', direct_upload: true %>
     <%= f.submit "Upload", class: "upload-button" %>
   <% end %>
+ <%# <%= current_user.photo.purge %>
   <div id="color-selector"></div>
-  <h2> Select your shade </h2>
   <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
     <% @color_shades.each do |shade| %>
       <%= link_to color_shade_sub_products_path(shade) do %>

@@ -12,13 +12,12 @@
         <p> <%= item.sub_product.product.description.first(50) %> </p>
       </div>
         <div class="justify-content-around">
-          <%= link_to "Delete", order_product_path(item), data: { turbo_method: :delete } %>
+          <%= link_to "Delete", favourite_path(item), data: { turbo_method: :delete } %>
         </div>
 
         <div class="justify-content-around">
-          <p class="my-button link-button"><%= link_to "Add to cart", orders_path, data: { turbo_method: :POST } %></p>
+          <p class="my-button link-button"><%= link_to "Add to cart", order_product_custom_create_path(subproduct: item.sub_product_id), data: { turbo_method: :POST } %></p>
         </div>
-
     </div>
   <% end %>
 </div>

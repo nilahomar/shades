@@ -9,13 +9,14 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.find(params[:id])
   end
 
-
   def create
-    if !current_user.favourites.where(sub_product_id: params[:sub_product]).exists?
-      @favourite = Favourite.create({
-        user_id: current_user.id,
-        sub_product_id: params[:sub_product]
-      })
+    unless current_user.favourites.where(sub_product_id: params[:sub_product]).exists?
+      @favourite = Favourite.create(
+        {
+          user_id: current_user.id,
+          sub_product_id: params[:sub_product]
+        }
+      )
       @favourite.save!
     end
     redirect_to sub_product_path(params[:sub_product])
