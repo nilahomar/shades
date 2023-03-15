@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   post "order_products", to: "order_products#custom_create", as: :order_product_custom_create
   # get "my_cart", to: "orders#show", as: :my_cart
 
-  get "pay_products", to: "orders#pay_products", as: :pay_products
+  get "payment", to: "order_products#payment", as: :payment
 end

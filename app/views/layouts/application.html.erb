@@ -13,8 +13,12 @@
   <body data-controller="cart navbar" data-cart-product-value="<%= current_user ? current_user.orders.to_json : nil %>">
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-     <div> <%= yield %></div>
+      <%= yield %>
+      <%= yield %>
 
     <%= render "shared/footer" %>
   </body>
+  <script>
+
+  </script>
 </html>

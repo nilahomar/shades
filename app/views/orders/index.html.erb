@@ -1,27 +1,36 @@
 <h1 class="foundation-heading"> Orders</h1>
 <div class="products-container">
-  <% @orders.each do |item| %>
-    <div class="products-card">
-        <div class="heart-icon">
-          <%= image_tag "heart.png" %>
+  <% if @orders.exists? %>
+    <% @orders.each do |item| %>
+      <div class="products-card">
+          <div class="heart-icon">
+            <%= image_tag "heart.png" %>
+          </div>
+          <div class="image-price">
+            <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
+            <p class="price">$<%= item.price * item.quantity %></p>
+          </div>
+        <div class="product-content">
+          <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
+          <p> <%= item.sub_product.product.name %> </p>
+          <p> <%= item.sub_product.product.description.first(50) %> </p>
+          <p> Quantity: <%= item.quantity %></p>
         </div>
-        <div class="image-price">
-          <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
-          <p class="price">$<%= item.price * item.quantity %></p>
-        </div>
-      <div class="product-content">
-        <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
-        <p> <%= item.sub_product.product.name %> </p>
-        <p> <%= item.sub_product.product.description.first(50) %> </p>
-        <p> Quantity: <%= item.quantity %></p>
+        <p>Status: <%= item.status %></p>
+        <% if item.status == "ORDERED" %>
+          <p> Expected delivery: <%= (item.created_at + 7.days).to_date%></p>
+          <div>
+            <%= link_to "Cancel", order_path(item), data: { turbo_method: :patch } %>
+          </div>
+        <% end %>
       </div>
-      <p>Status: <%= item.status %></p>
-      <% if item.status == "ORDERED" %>
-        <p> Expected delivery: <%= (item.created_at + 7.days).to_date%></p>
-        <div>
-          <%= link_to "Cancel", order_path(item), data: { turbo_method: :patch } %>
-        </div>
-      <% end %>
+    <% end %>
+  <% else %>
+    <div class="products-card-card">
+      <%= image_tag "empty_cart.png" %>
+    </div>
+    <div class="my-button link-button w-100 mt-4">
+      <%= link_to "Go Shopping", products_path, class: "w-100" %>
     </div>
   <% end %>
 </div>
