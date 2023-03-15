@@ -3,6 +3,10 @@
   <div class="image-color-selector-container">
       <div class="row justify-content-center">
         <div class="col-6">
+           <%= simple_form_for :this_user, url: "color_shades" do |f| %>
+            <%= f.input :pic, as: :file, label: false, placeholder: 'Upload picture', direct_upload: true %>
+            <%= f.submit "Upload", class: "upload-button" %>
+          <% end %>
           <% if current_user.pic.attached? %>
             <%= image_tag current_user.pic, alt: "foundation image", class: "img-color" %>
           <% end %>
@@ -22,10 +26,7 @@
 
 
   </div>
-    <%= form_for :this_user, url: "color_shades" do |f| %>
-      <%= f.file_field :pic, placeholder: 'Upload picture', direct_upload: true %>
-      <%= f.submit "Upload", class: "upload-button" %>
-    <% end %>
+
   <%# <%= current_user.photo.purge %>
 
 </div>

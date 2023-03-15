@@ -75,7 +75,7 @@ def create_product(data_hash, color_shades)
         'name' => variant['name'],
         'shade_hex' => variant['shade_hex'],
         'img_main' => variant['cloudinary_url'][0],
-        'img_alt' => variant['cloudinary_url'][1],
+        'img_alt' => variant['cloudinary_url'][0], # TODO
         'color_shade_id' => color_shade_obj.id,
         'product_id' => product_id
       }
@@ -84,6 +84,6 @@ def create_product(data_hash, color_shades)
   end
 end
 
-data_hash = load_json("db/cloudinary_data_page_1.json")
+data_hash = load_json("db/cloudinary_data_no_bg.json")
 color_shades = create_color_shades(data_hash)
 create_product(data_hash, color_shades)
