@@ -12,10 +12,6 @@
   width: 80%;
   margin: 0 auto;
   padding: 4rem;
-
-  a{
-    text-decoration: none;
-  }
 }
 
 .products-container-home{
@@ -27,21 +23,14 @@
   width: 80%;
   margin: 0 auto;
   padding: 4rem;
-
-  a{
-    text-decoration: none;
-  }
 }
 
 .products-card {
-  // height: 500px;
   flex-direction: column;
   background-color: $card-color;
   padding: 1rem;
   margin: 0 auto;
-  margin: 0 auto;
   display: flex;
-
   justify-content: space-between;
   img{
     width: 100%;
@@ -88,11 +77,9 @@
   align-items: center;
   .brand-name{
     margin-top: 1rem;
-   //font-size: 1rem;
-
     a{
       color: $secondary;
-      font-size: 1.7rem;
+      font-size: 1.1rem;
     }
   }
 }

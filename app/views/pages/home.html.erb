@@ -14,7 +14,7 @@
         </div>
         <div class="product-content">
           <h5 class="brand-name"> <%= link_to product.brand_name, sub_product_path(product.sub_products[0]) %> </h5>
-          
+
         </div>
         <div class="d-flex justify-content-around">
           <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>
@@ -26,33 +26,32 @@
   <div class="discover-more">
     <%= link_to "Discover More", products_path(@product) %>
   </div>
-
 <h1 class="home-heading">How It Works</h1>
 <div class="home-cards-container">
   <div class="home-card">
     <div class="home-card-header">
-      <%= image_tag "logo.png" %>
+      <%= image_tag "facemakeup.png" %>
       <h3>Select your Skin Tone</h3>
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
   </div>
   <div class="home-card">
     <div class="home-card-header">
-      <%= image_tag "shade-2.png" %>
+      <%= image_tag "blush.png" %>
       <h3>Match the Shade</h3>
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
   </div>
   <div class="home-card">
     <div class="home-card-header">
-      <%= image_tag "shopping-cart.png" %>
+      <%= image_tag "cart.png" %>
       <h3>Add to Cart</h3>
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>
   </div>
   <div class="home-card">
     <div class="home-card-header">
-      <%= image_tag "sent.png" %>
+      <%= image_tag "package.png" %>
       <h3>Make an Order</h3>
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quidem magnam ipsum iste consequuntur neque sint ut quas vel! Mollitia veniam dolore minima facilis illo, eligendi rerum consequuntur officiis laborum!</p>

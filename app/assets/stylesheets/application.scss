@@ -15,21 +15,10 @@
 @import "pages/upload_image";
 
 
-.shoppingCardCirle {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: -5px;
-  right: -10px;
-  display: none;
-  text-align: center;
-  background-color: #ebaeae;
-  border-radius: 79%;
-  text-align: center;
+body{
+font-family: $shades-font;
 }
 
-.shoppingcard_image_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+a{
+  text-decoration: none;
 }
