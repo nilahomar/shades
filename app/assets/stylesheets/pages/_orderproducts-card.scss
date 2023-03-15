@@ -4,7 +4,6 @@
 
 .products-container-cart{
   padding: 5rem;
-  margin: 0 auto;
 }
 
 .products-card-card {
@@ -28,7 +27,7 @@
   margin: 25px;
  p {
     font-size: 1rem;
-    text-align: center;
+    // text-align: center;
   }
 }
 
@@ -64,4 +63,10 @@ gap: 1rem;
   cursor: pointer;
   margin: 0 5px;
   padding: 5px 10px;
+}
+
+.delete-link-button{
+  img{
+    width: 20px;
+  }
 }
