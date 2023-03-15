@@ -9,5 +9,6 @@ class ColorShadesController < ApplicationController
 
   def create
     current_user.pic.attach(params[:this_user][:pic])
+    redirect_to my_shades_path
   end
 end
