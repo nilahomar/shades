@@ -4,7 +4,6 @@
 @import "config/bootstrap_variables";
 @import "config/core_layout";
 
-
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
@@ -14,11 +13,17 @@
 @import "pages/index";
 @import "pages/upload_image";
 
-
-body{
-font-family: $shades-font;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: $shades-font;
 }
 
-a{
+a {
   text-decoration: none;
 }
