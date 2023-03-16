@@ -41,6 +41,10 @@
     font-weight: 600;
 }
 
+.box-2{
+  background-color: $card-color;
+}
+
 .dis {
     font-size: 12px;
     font-weight: 500;
@@ -149,6 +153,7 @@ input[type="radio"] {
     border-radius: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    background-color: $card-color;
 
 }
 
@@ -235,6 +240,24 @@ input[type="radio"] {
 #pay{
   background-color:#1C080D ;
 }
+
+.payment-form{
+  form{
+    display: inline-block;
+  }
+
+}
+
+.price-color{
+  color:black;
+
+}
+
+.price-color1{
+  color:white
+}
+
+
 
 @media (max-width:768px) {
     .container {

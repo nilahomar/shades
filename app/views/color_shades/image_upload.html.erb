@@ -11,12 +11,6 @@
       <% end %>
     </div>
     <div class="col-md-4">
-      <div>
-        <%= simple_form_for :this_user, url: "color_shades", class: "form-upload" do |f| %>
-        <%= f.input :pic, as: :file, label: false, placeholder: 'Upload picture', direct_upload: true %>
-        <%= f.submit "Upload", input_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-        <% end %>
-      </div>
       <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
         <% @color_shades.each do |shade| %>
           <%= link_to color_shade_sub_products_path(shade) do %>
@@ -24,6 +18,12 @@
           <% end %>
         <% end %>
       </ul>
+      <div>
+        <%= simple_form_for :this_user, url: "color_shades", html: { class: "form-upload" } do |f| %>
+        <%= f.input :pic, as: :file, direct_upload: true, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'  %>
+        <%= f.submit "Upload", class: "btn btn-dark button-black" %>
+        <% end %>
+      </div>
     </div>
   </div>
 

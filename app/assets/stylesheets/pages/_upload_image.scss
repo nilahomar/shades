@@ -52,7 +52,7 @@
   border-radius: 2px;
 }
 
-form{
+.form-upload {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,4 +74,10 @@ form{
   background-color:$card-color;
   padding: 2rem;
   margin: 2rem;
+}
+
+.button-black {
+  height: 55px;
+  margin-top: -7px;
+  width: 156px;
 }
