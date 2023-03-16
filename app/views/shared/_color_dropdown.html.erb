@@ -1,14 +1,13 @@
 <div class="dropdown" style="margin-top: 5%; margin-left: 15%;">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Choose your Shade
   </button>
-
-
-  <div class="dropdown-menu color-dropdown" id="scroll-box" aria-labelledby="dropdownMenuButton">
+  <div class="dropdown-menu" style="background-color: rgba(255,255,255,.75)" id="scroll-box" aria-labelledby="dropdownMenuButton">
     <% unless @color_shades.nil? %>
       <% @color_shades.each do |shade| %>
-        <%= link_to color_shade_sub_products_path(shade) do %>
-          <div class="color-picker" style="background: <%= shade.shade_hex %>;"></div>
+        <%= link_to color_shade_sub_products_path(shade), class: "dropdown-item color-dropdown" do %>
+          <div class="nav-bar-color-picker" style="background: <%= shade.shade_hex %>;"></div>
+          <div class="nav-bar-text"><%= shade.shade_name %></div>
         <% end %>
       <% end %>
     <% end %>

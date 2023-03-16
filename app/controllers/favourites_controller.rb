@@ -19,7 +19,7 @@ class FavouritesController < ApplicationController
       )
       @favourite.save!
     end
-    redirect_to sub_product_path(params[:sub_product])
+    redirect_to sub_product_path(params[:sub_product]), notice: 'Item added to Favourites'
   end
 
   def destroy
