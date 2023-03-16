@@ -7,7 +7,7 @@
       <% if current_user.pic.attached? %>
         <%= image_tag current_user.pic, alt: "user-image", class: "img-color" %>
       <% else %>
-        <%= image_tag("user.png")%>
+        <%= image_tag ("user.png"), class: "user-image-placeholder" %>
       <% end %>
     </div>
     <div class="col-md-4">
@@ -20,7 +20,7 @@
       </ul>
       <div>
         <%= simple_form_for :this_user, url: "color_shades", html: { class: "form-upload" } do |f| %>
-        <%= f.input :pic, as: :file, direct_upload: true, input_html: { class: 'd-none'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'  %>
+        <%= f.input :pic, as: :file, direct_upload: true, input_html: { class: "d-none" }, label_html: { class: "upload-photo" }, label: "📷 Upload a photo" %>
         <%= f.submit "Upload", class: "btn btn-dark button-black" %>
         <% end %>
       </div>
