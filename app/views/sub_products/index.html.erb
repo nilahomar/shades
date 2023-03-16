@@ -1,6 +1,6 @@
 <h1 class="foundation-heading"> Foundations for Your Skin Tone</h1>
 <div class="products-container">
-  <% @sub_products.shuffle.each do |sub_product| %>
+  <% @sub_products.shuffle(random: Random.new(42)).each do |sub_product| %>
       <div class="products-card">
           <div class="heart-icon">
             <%= image_tag "heart.png" %>
