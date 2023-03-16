@@ -1,27 +1,29 @@
 <h1 class="foundation-heading"> Orders</h1>
-<div class="products-container">
+<div class="products-container-cart">
   <% if @orders.exists? %>
     <% @orders.each do |item| %>
-      <div class="products-card">
-          <div class="heart-icon">
-            <%= image_tag "heart.png" %>
-          </div>
+      <div class="products-card-card">
           <div class="image-price">
             <%= image_tag item.sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
             <p class="price">$<%= item.price * item.quantity %></p>
           </div>
-        <div class="product-content">
+        <div class="card-product-infos">
           <h5 class="brand-name"> <%= item.sub_product.product.brand_name %> </h5>
           <p> <%= item.sub_product.product.name %> </p>
           <p> <%= item.sub_product.product.description.first(50) %> </p>
           <p> Quantity: <%= item.quantity %></p>
+            <% if item.status == "ORDERED" %>
+              <div class="order-cancel-button">
+              <%= link_to "Cancel", order_path(item), data: { turbo_method: :patch } %>
+            </div>
+            <% else %>
+              <div></div>
+            <% end %>
+
         </div>
         <p>Status: <%= item.status %></p>
         <% if item.status == "ORDERED" %>
-          <p> Expected delivery: <%= (item.created_at + 7.days).to_date%></p>
-          <div>
-            <%= link_to "Cancel", order_path(item), data: { turbo_method: :patch } %>
-          </div>
+          <p> Expected delivery: <%= (item.created_at + 7.days).to_date %></p>
         <% end %>
       </div>
     <% end %>
