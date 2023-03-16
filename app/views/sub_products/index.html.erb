@@ -2,9 +2,15 @@
 <div class="products-container">
   <% @sub_products.shuffle(random: Random.new(42)).each do |sub_product| %>
       <div class="products-card">
-          <div class="heart-icon">
-            <%= image_tag "heart.png" %>
-          </div>
+          <% if !current_user.favourites.where(sub_product_id: @sub_product).exists? %>
+            <div class="heart-icon">
+              <%= link_to image_tag("heart.png"), favourites_path(sub_product: @sub_product), data: { turbo_method: :POST }, 'data-turbolinks-scroll': false %>
+            </div>
+          <% else %>
+            <div class="heart-icon">
+              <%= link_to image_tag("like.png") %>
+            </div>
+          <% end %>
           <div class="image-price">
           <%= link_to sub_product_path(sub_product) do %>
             <%= image_tag sub_product.img_main, class: "card-img-top", alt: "foundation image" %>
@@ -19,7 +25,7 @@
         </div>
 
        <div class="products-button">
-          <p class="my-button button-color"><%= link_to "Add to Cart", order_product_custom_create_path(subproduct: sub_product), data: { turbo_method: :POST }, 'data-turbolinks-scroll': false  %></p>
+          <p class="my-button button-color"><%= link_to "Add to Cart", order_product_custom_create_path(subproduct: sub_product), data: { turbo_method: :POST }, 'data-turbolinks-scroll': false %></p>
         </div>
     </div>
 <% end %>

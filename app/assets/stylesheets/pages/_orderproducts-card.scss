@@ -46,7 +46,8 @@
 }
 
 .price {
-  text-align: end;
+  text-align: center;
+  font-size: 1.2rem;
   font-weight: 900;
 }
 
@@ -68,6 +69,7 @@
 }
 
 .delete-link-button {
+  margin-left: 4rem;
   img {
     width: 20px;
   }
@@ -82,9 +84,6 @@
 .cart-button {
   display: flex;
   gap: 3rem;
-  a {
-    width: 20%;
-  }
 }
 
 .empty-cart {

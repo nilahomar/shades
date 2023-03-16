@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Shades</title>
+    <title>Shades: your personal makeup assistant</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= favicon_link_tag "favicon.png" %>
+
   </head>
 
   <body data-controller="cart navbar" data-cart-product-value="<%= current_user ? current_user.orders.to_json : nil %>">
