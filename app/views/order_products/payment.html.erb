@@ -14,10 +14,10 @@
               </div>
               <div class="course">
                 <div class="d-flex align-items-center justify-content-between mb-2">
-                  <span class="fw-bold">
+                  <span class="fw-bold ">
                     <%= item.sub_product.product.name %>
                   </span>
-                  <span class="fas fa-euro-sign"> <%= item.sub_product.product.price * item.quantity %> </span>
+                  <span class="fas fa-dollar-sign px-2 price-color"> <%= item.sub_product.product.price * item.quantity %> </span>
                 </div>
                 <span> <p>Quantity: <%= item.quantity  %></span></p>
               </div>
@@ -66,7 +66,7 @@
               <div class=" my-3 d-flex flex-column dis">
                 <div class="d-flex align-items-center justify-content-between mb-2">
                   <p>Subtotal</p>
-                  <p><span class="fas fa-dollar-euro"></span><%= @sub_total %></p>
+                  <p><span class="fas fa-dollar-euro fa-dollar-sign price-color"></span><%= @sub_total %></p>
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                     <p>VAT<span>(<%= @vat %>%)</span></p>
@@ -74,12 +74,12 @@
                 </div>
                 <div class="d-flex align-items-center justify-content-between mb-2">
                     <p class="fw-bold">Total</p>
-                    <p class="fw-bold"><span class="fas fa-dollar-euro"></span>
+                    <p class="fw-bold"><span class="fas fa-dollar-euro fa-dollar-sign price-color"></span>
                       <%= @total %>
                     </p>
                 </div>
                 <%= link_to orders_path, data: { turbo_method: :POST } do %>
-                  <div class="btn btn-primary mt-2" id="pay">Pay<span class="fas fa-dollar-euro px-1"></span>
+                  <div class="btn btn-primary mt-2" id="pay">Pay<span class="fas fa-dollar-euro px-1 fa-dollar-sign price-color1"></span>
                     <%= @total %>
                   </div>
                 <% end %>
