@@ -24,6 +24,17 @@
         </li>
       </ul>
           <li class="nav-item dropdown gap-3">
+            <div class="shoppingcard_image_container">
+              <% cart_items_count = current_user.order_products.sum(:quantity) %>
+              <% if cart_items_count > 0 %>
+                <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
+                  <h6> <%= cart_items_count %> </h6>
+                </div>
+              <% end %>
+              <%= link_to order_products_path do %>
+              <%= image_tag "shopping-cart.png", class: "nav-cart" %>
+              <% end %>
+            </div>
             <% if current_user.pic.attached? %>
               <%= cl_image_tag current_user.pic.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% else %>
@@ -35,19 +46,8 @@
               <%= link_to "My Orders", orders_path, class: "dropdown-item" %>
               <%= link_to "Pick your shade", my_shades_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-              </div>
-            <div class="shoppingcard_image_container">
-              <% cart_items_count = current_user.order_products.sum(:quantity) %>
-              <% if cart_items_count > 0 %>
-              <div class="shoppingCardCirle" data-cart-target="shoppingCartCircle" style="display: block">
-                <h6> <%= cart_items_count %> </h6>
-              </div>
-            <% end %>
-            <%= link_to order_products_path do %>
-            <%= image_tag "shopping-cart.png", class: "nav-cart" %>
-            <% end %>
-          </div>
-        </li>
+            </div>
+          </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
