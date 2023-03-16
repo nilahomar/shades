@@ -11,10 +11,12 @@
       <% end %>
     </div>
     <div class="col-md-4">
-      <ul id="shade-pick" style="display: flex; flex-wrap: wrap; list-style-type: none;">
+      <ul id="shade-pick">
         <% @color_shades.each do |shade| %>
           <%= link_to color_shade_sub_products_path(shade) do %>
-            <li style="margin: 5px; height: 40px; width: 40px; background: <%= shade.shade_hex %>;"> </li>
+            <li class="shade-block shade-tooltip" style="background: <%= shade.shade_hex %>;">
+              <span class="tooltiptext"> <%= shade.shade_name %> </span>
+            </li>
           <% end %>
         <% end %>
       </ul>

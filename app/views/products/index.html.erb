@@ -14,8 +14,7 @@
         </div>
         <div class="product-content">
           <h5 class="brand-name"> <%= link_to product.brand_name, sub_product_path(product.sub_products[0]) %> </h5>
-          <p> Rating: <%= product.rating %> </p>
-
+          <i data-star=<%= product.rating %>> </i>
         </div>
         <div class="d-flex justify-content-around">
           <p class="my-button"> <%= link_to "Choose your shade", sub_product_path(product.sub_products[0]) %></p>

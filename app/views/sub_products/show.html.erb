@@ -21,7 +21,7 @@
               <h4> <%= @product.name %> </h4>
               <p>Shade : <%= @sub_product.name %> </p>
               <p> <%= @product.description %> </p>
-              <p>Rating : <%= @product.rating %> </p>
+              <i data-star=<%= @product.rating %>></i>
             </div>
           </div>
         </div>
@@ -41,7 +41,9 @@
     <ul class="color-shades">
       <% @product.sub_products.each do |sub| %>
         <%= link_to sub_product_path(sub) do %>
-          <li style="background-color: <%= sub.shade_hex %>;"> </li>
+          <li class="shade-tooltip", style="background-color: <%= sub.shade_hex %>;">
+            <span class="tooltiptext"> <%= sub.name[0..3] %> </span>
+          </li>
         <% end %>
       <% end %>
     </ul>
