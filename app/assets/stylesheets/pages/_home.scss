@@ -16,19 +16,17 @@
   .home-card {
     width: 48%;
     flex-shrink: 0;
-    background-color: #F3E2E2;
+    background-color: #f3e2e2;
     border-radius: 12px;
     padding: 30px 25px 20px 25px;
 
     .home-card-header {
       display: flex;
       justify-self: flex-end;
-
       img {
         width: 70px;
         height: 70px;
       }
-
       h3 {
         justify-content: flex-end;
         margin: 1.5rem;
@@ -38,27 +36,29 @@
     p {
       font-family: $shades-font;
       color: $gray-text;
+      font-size: 1.2rem;
+      padding: 1rem;
+      text-align: justify;
     }
   }
 }
 
-.discover-more{
+.discover-more {
   display: flex;
   justify-content: center;
 
-  a{
-    color: #C98686;
+  a {
+    color: #c98686;
     font-size: 1.8rem;
     text-decoration: underline;
   }
 
-  a:hover{
+  a:hover {
     color: $secondary-color;
   }
 }
 
-
-#scroll-box{
+#scroll-box {
   max-height: 85vh;
   overflow-y: scroll;
 }
@@ -69,21 +69,19 @@
   margin: 0 auto;
 }
 
-.partners-images{
+.partners-images {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3px;
-
 
   img {
     width: 100%;
     border-radius: 27px;
     height: 200px;
-
   }
 }
 
-#drop-down-avatar{
+#drop-down-avatar {
   background-color: $card-color;
   border-radius: 10px;
   border: none;
