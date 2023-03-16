@@ -29,7 +29,7 @@ class OrderProductsController < ApplicationController
       )
       @order_product.save!
     end
-    redirect_to request.referrer
+    redirect_to request.referrer, notice: 'Item added to cart'
   end
 
   def destroy

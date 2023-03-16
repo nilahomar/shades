@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       )
       item.destroy if @order.save!
     end
-    redirect_to orders_path
+    redirect_to orders_path, notice: 'Congratulations 🎉 Your order has been placed!'
   end
 
   def update

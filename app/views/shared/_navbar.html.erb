@@ -4,7 +4,7 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "logo.png", class: "img-logo" %>
       <% end %>
- <%= render "shared/color_dropdown" %>
+      <%= render "shared/color_dropdown" %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -33,6 +33,7 @@
               <%= link_to "All Foundations", products_path, class: "dropdown-item" %>
               <%= link_to "Favourites", favourites_path, class: "dropdown-item" %>
               <%= link_to "My Orders", orders_path, class: "dropdown-item" %>
+              <%= link_to "Pick your shade", my_shades_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
               </div>
             <div class="shoppingcard_image_container">
