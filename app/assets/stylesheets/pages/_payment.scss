@@ -236,6 +236,10 @@ input[type="radio"] {
   background-color:#1C080D ;
 }
 
+.payment-form{
+  display: block;
+}
+
 @media (max-width:768px) {
     .container {
         max-width: 700px;
