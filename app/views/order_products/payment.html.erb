@@ -2,15 +2,12 @@
 <div class="payment-container d-lg-flex">
   <div class="box-1 bg-light user">
     <div class="box-inner-1 pb-3 mb-3 ">
-      <div class="d-flex justify-content-between mb-3 userdetails">
-          <p class="fw-bold">Cart Products</p>
-      </div>
       <div class="radiobtn">
         <% @cart.each do |item| %>
           <label class="box py-2">
             <div class="d-flex align-items-start">
               <div class="d-flex align-items-center mb-3">
-                <%= image_tag item.sub_product.img_main,  class: "pic rounded-circle"%>
+                <%= image_tag item.sub_product.img_main, class: "pic rounded-circle" %>
               </div>
               <div class="course">
                 <div class="d-flex align-items-center justify-content-between mb-2">
@@ -19,7 +16,7 @@
                   </span>
                   <span class="fas fa-dollar-sign px-2 price-color"> <%= item.sub_product.product.price * item.quantity %> </span>
                 </div>
-                <span> <p>Quantity: <%= item.quantity  %></span></p>
+                <span> <p>Quantity: <%= item.quantity %></span></p>
               </div>
             </div>
           </label>
@@ -36,7 +33,7 @@
       <form action="" class="payment-form">
         <div class="mb-3">
           <p class="dis fw-bold mb-2">Email address</p>
-          <input class="form-control" type="email" value= <%= current_user.email%>>
+          <input class="form-control" type="email" value= <%= current_user.email %>>
         </div>
         <div>
           <p class="dis fw-bold mb-2">Card details</p>
