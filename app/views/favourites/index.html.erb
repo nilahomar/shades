@@ -11,8 +11,8 @@
         <p> <%= item.sub_product.product.name %> </p>
         <p> <%= item.sub_product.product.description.first(50) %> </p>
       </div>
-        <div class="justify-content-around">
-          <%= link_to "Delete", favourite_path(item), data: { turbo_method: :delete } %>
+        <div class="fav-delete-link-button">
+          <%= link_to image_tag("delete.png"), favourite_path(item), data: { turbo_method: :delete } %>
         </div>
 
         <div class="justify-content-around">

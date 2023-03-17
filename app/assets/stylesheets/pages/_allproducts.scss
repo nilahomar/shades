@@ -1,19 +1,18 @@
-.products-banner{
+.products-banner {
   background-image: asset-url("shades-background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   padding-bottom: 40px;
   height: 380px;
-
 }
 
-.foundation-heading{
+.foundation-heading {
   padding-top: 10rem;
   text-align: center;
 }
 
-.products-container{
+.products-container {
   display: flex;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -24,7 +23,7 @@
   padding: 4rem;
 }
 
-.products-container-home{
+.products-container-home {
   display: flex;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -38,22 +37,17 @@
 .products-card {
   flex-direction: column;
   background-color: $card-color;
-  padding: 1rem;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
 
-  a{
+  a {
     text-decoration: none;
   }
-}
 
-.products-card {
-  background-color: $card-color;
-  padding: 1rem;
-  margin: 0 auto;
-
-  img{
+  img {
     width: 100%;
     height: 100%;
   }
@@ -63,44 +57,58 @@
   text-align: right;
   padding: 0.3rem;
 
-  img{
+  img {
     width: 20px;
     height: 20px;
   }
 }
 
-.image-price{
+.image-price {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
+  // gap: 1.2rem;
   padding: 1rem;
   flex-direction: column;
 }
 
-.price-product{
+.price-product {
   width: 70px;
   height: 70px;
   padding-top: 20px;
   border-radius: 50%;
-  background-color: $secondary;
-
+  background-color: $secondary-color;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: $white;
   flex-direction: column;
   text-align: center;
+  font-size: 1.2rem;
 }
 
-.product-content{
-  color: $secondary;
+.product-content {
+  color: $secondary-color;
   padding: 0.5rem;
   text-align: center;
-  .brand-name{
+
+  .brand-name {
     margin-top: 1rem;
-    a{
-      color: $secondary;
-      font-size: 1.1rem;
+    a {
+      color: $secondary-color;
+      font-size: 1.5rem;
+      font-weight: 400;
     }
   }
+}
+
+.fav-delete-link-button {
+  img {
+    width: 20px;
+  }
+}
+
+.choose-shade {
+  font-size: 1.2rem;
+  font-weight: 400;
 }
